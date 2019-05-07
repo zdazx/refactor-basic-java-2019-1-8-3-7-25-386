@@ -3,11 +3,11 @@ package practice3;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class Order {
+public class Order extends PriceCaculator {
 
-    private List<OrderLineItem> orderLineItemList;
-    private List<BigDecimal> discounts;
-    private BigDecimal tax;
+    public List<OrderLineItem> orderLineItemList;
+    public List<BigDecimal> discounts;
+    public BigDecimal tax;
 
     public Order(List<OrderLineItem> orderLineItemList, List<BigDecimal> discounts) {
         this.orderLineItemList = orderLineItemList;
@@ -16,7 +16,7 @@ public class Order {
     }
 
     public BigDecimal calculate() {
-        BigDecimal subTotal = new BigDecimal(0);
+        /*BigDecimal subTotal = new BigDecimal(0);
 
         // Total up line items
         for (OrderLineItem lineItem : orderLineItemList) {
@@ -34,6 +34,7 @@ public class Order {
         // calculate GrandTotal
         BigDecimal grandTotal = subTotal.add(tax);
 
-        return grandTotal;
+        return grandTotal;*/
+        return new PriceCaculator(this).calculate();
     }
 }
